@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.gatling.charts.template
 
 import java.nio.charset.Charset
@@ -69,7 +70,7 @@ private[charts] abstract class PageTemplate(title: String, isDetails: Boolean, r
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="style/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="style/cs-favicon.ico"/>
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 <link href="style/bootstrap.min.css" rel="stylesheet" type="text/css" />
 ${jsFiles.map(jsFile => fast"""<script type="text/javascript" src="js/$jsFile"></script>""").mkFastring(Eol)}
@@ -80,6 +81,9 @@ ${jsFiles.map(jsFile => fast"""<script type="text/javascript" src="js/$jsFile"><
 <div class="container details">
     <div class="head">
         <a href="http://gatling.io" target="blank_" title="Gatling Home Page"><img alt="Gatling" src="style/logo.png"/></a>
+        <a href="http://www.centricsoftware.com" target="blank_" title="CentricSoftware">
+          <img src="style/cs-logo.png" alt="Centric Software" style="width: 50%;margin-bottom: 29px;margin-left: 22px;">
+        </a>
     </div>
     <div class="main">
         <div class="cadre">
