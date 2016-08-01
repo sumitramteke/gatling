@@ -17,6 +17,7 @@
 package io.gatling.charts.template
 
 import java.nio.charset.Charset
+import java.net.InetAddress
 
 import io.gatling.charts.FileNamingConventions
 import io.gatling.charts.component.Component
@@ -65,6 +66,10 @@ private[charts] abstract class PageTemplate(title: String, isDetails: Boolean, r
         "var pageStats = stats.stats;"
       }
 
+      val uname = System.getProperty("user.name")
+      val hostname = InetAddress.getLocalHost().getHostName()
+      val ipaddr = InetAddress.getLocalHost().getHostAddress()
+
     fast"""
 <!DOCTYPE html>
 <html>
@@ -102,6 +107,9 @@ ${jsFiles.map(jsFile => fast"""<script type="text/javascript" src="js/$jsFile"><
                           document.writeln("<b>" + runStartHumanDate + ", duration : $duration seconds ${runMessage.runDescription.truncate(70).htmlEscape}</b>");
                           document.writeln("</p>");
                         </script>
+
+                        <p style="float: right;padding: 0;margin: 0;margin-right: 20%;font-weight: bold;">
+                        $uname, $hostname, $ipaddr </p>
                     </div>
                     <div class="content-in">
                         <h1><span>> </span>$title</h1>
