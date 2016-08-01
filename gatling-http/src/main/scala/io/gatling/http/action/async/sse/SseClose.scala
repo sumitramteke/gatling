@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.gatling.http.action.async.sse
 
 import io.gatling.core.session.Expression
@@ -29,4 +30,3 @@ class SseClose(
 ) extends CloseAction(requestName, sseName, statsEngine, next) with SseAction with NameGen {
   override val name = genName("sseClose")
 }
-
